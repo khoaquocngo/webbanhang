@@ -1,0 +1,29 @@
+<%- include('header',{title: 'Accout Guest'}); -%>
+<table class="container table order ">
+    <thead class="order-header">
+      <tr class="item">
+        <th scope="col">Tài Khoản</th>
+        <th scope="col">Họ và Tên</th>
+        <th scope="col">Số điện thoại</th>
+        <th scope="col">Email</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody order-body>
+        <% user.forEach(function(u){ %>
+        <tr class="item">
+            <th class="name"><%= u.Username; %> </th>
+            <th scope="col"><%= u.Fullname; %> </th>
+            <th scope="col"><%= u.Phone; %> </th>
+            <th scope="col"><%= u.Email; %> </th>
+            <% if(u.Block === false){ %> 
+              <th scope="col"><a href="/AccountGuest/<%= u.id %>/block">Block</a> </th>
+              <% } else{ %>
+                <th scope="col"><a href="/AccountGuest/<%= u.id %>/unblock">Unblock</a> </th>
+              <% } %> 
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+
+<%- include('footer'); -%>

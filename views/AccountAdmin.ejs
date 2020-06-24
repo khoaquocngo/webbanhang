@@ -1,0 +1,69 @@
+<%- include('header',{title: 'Accout Admin'}); -%>
+<div class="container">
+  <form action="" method="post" class="adm">
+    <div class="item">
+      <label for="username">Tài khoản: </label>
+      <div>
+        <input
+          type="text"
+          type="text"
+          class="form-control accout-ib"
+          id="username"
+          name="username"
+        />
+      </div>
+    </div>
+    <div class="item">
+      <label for="password">Mật khẩu: </label>
+      <div>
+        <input
+          type="text"
+          type="text"
+          class="form-control accout-ib"
+          id="password"
+          name="password"
+        />
+      </div>
+    </div>
+    <input
+      class="btn btn-primary add-btn"
+      type="submit"
+      value="Thêm nhân viên"
+    />
+  </form>
+
+  <div>
+    <table class="table order accout-tb">
+      <thead class="order-header">
+        <tr class="item">
+          <th scope="col">Tài Khoản</th>
+          <th scope="col">Họ và Tên</th>
+          <th scope="col">Số điện thoại</th>
+          <th scope="col">Email</th>
+          <th scope="col">Thao tác</th>
+        </tr>
+      </thead>
+      <tbody class="order-body">
+        <% user.forEach(function(u){ %>
+        <tr class="item">
+          <th class="code"><%= u.Username; %></th>
+          <th class="name"><%= u.Fullname; %></th>
+          <th class="name"><%= u.Phone; %></th>
+          <th class="name"><%= u.Email; %></th>
+          <% if(u.Block === false){ %>
+          <th class="name">
+            <a href="/AccountAdmin/<%= u.id %>/block">Block</a>
+          </th>
+          <% } else{ %>
+          <th class="name">
+            <a href="/AccountAdmin/<%= u.id %>/unblock">unBlock</a>
+          </th>
+          <% } %>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<%- include('footer'); -%>

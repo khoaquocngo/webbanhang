@@ -1,0 +1,52 @@
+<%- include('header',{title: 'Profile'}); -%>
+<div class="container profile">
+  <h3 class="page-title">THÔNG TIN CÁ NHÂN</h3>
+  <form method="post" enctype="multipart/form-data" class="profile-form">
+    <div class="form-group">
+      <label for="avatar">Avatar: </label>
+      <input type="file" class="form-control-file" id="avatar" name="avatar" />
+    </div>
+    <div class="form-group">
+      <label for="fullname">Họ Và Tên: </label>
+      <input
+        type="text"
+        class="form-control"
+        id="fullname"
+        name="fullname"
+        value="<%= currentUser.Fullname %> "
+      />
+    </div>
+    <div class="form-group">
+      <label for="email">Email: </label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        name="email"
+        value="<%= currentUser.Email %> "
+      />
+    </div>
+    <div class="form-group">
+      <label for="address">Địa Chỉ: </label>
+      <input
+        type="text"
+        class="form-control"
+        id="address"
+        name="address"
+        value="<%= currentUser.Address %> "
+      />
+    </div>
+    <div class="form-group">
+      <label for="phone">Số Điện Thoại: </label>
+      <input
+        type="text"
+        class="form-control"
+        id="phone"
+        name="phone"
+        value="<%= currentUser.Phone %> "
+      />
+    </div>
+    <button type="submit" class="btn btn-primary center-btn">Thay đổi</button>
+  </form>
+</div>
+<%- include('footer'); -%>

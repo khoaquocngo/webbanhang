@@ -1,0 +1,36 @@
+<%- include('header',{title: 'Order Detail'}); -%>
+<div class="container order-detail">
+  <h4 class="detail-title">Chi tiết đơn hàng:</h4>
+  <ul class="list-group detail">
+    <li class="list-group-item item">
+      <strong>Mã đặt hàng:</strong> <%= order.code %>
+    </li>
+    <li class="list-group-item item">
+      <strong>Họ và Tên:</strong> <%= order.Fullname %>
+    </li>
+    <li class="list-group-item item">
+      <strong>Email:</strong> <%= order.Email %>
+    </li>
+    <li class="list-group-item item">
+      <strong>Địa chỉ:</strong> <%= order.Address %>
+    </li>
+    <li class="list-group-item item">
+      <strong>Số điện thoại:</strong> <%= order.Phone %>
+    </li>
+    <li class="list-group-item item">
+      <strong>Tên sản phẩm:</strong> <%= order.product.ProductName %>
+    </li>
+    <li class="list-group-item item">
+      <div><strong>Hình ảnh:</strong></div>
+      <img src="<%=order.product.ProductImage %>" alt="" class="item-img" />
+    </li>
+    <li class="list-group-item item">
+      <strong>Giá tiền:</strong> <%= order.product.Price%>
+    </li>
+    <li class="list-group-item item">
+      <strong>Số lượng:</strong> <%= order.Number %>
+    </li>
+  </ul>
+</div>
+
+<%- include('footer'); -%>

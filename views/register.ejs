@@ -1,0 +1,41 @@
+<%- include('header',{title: 'Register'}); -%>
+<div class="container register">
+  <h3 class="page-title">Đăng ký</h3>
+  <form method="post" enctype="multipart/form-data" class="profile-form">
+    <div class="form-group">
+      <label for="avatar">Avatar: </label>
+      <input type="file" class="form-control-file" id="avatar" name="avatar" />
+    </div>
+    <div class="form-group">
+      <label for="username">Tài Khoản: </label>
+      <input type="text" class="form-control" id="username" name="username" />
+    </div>
+    <div class="form-group">
+      <label for="password">Mật Khẩu: </label>
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        name="password"
+      />
+    </div>
+    <div class="form-group">
+      <label for="fullname">Họ và Tên: </label>
+      <input type="text" class="form-control" id="fullname" name="fullname" />
+    </div>
+    <div class="form-group">
+      <label for="email">Email: </label>
+      <input type="email" class="form-control" id="email" name="email" />
+    </div>
+    <div class="form-group">
+      <label for="address">Địa Chỉ: </label>
+      <input type="text" class="form-control" id="address" name="address" />
+    </div>
+    <div class="form-group">
+      <label for="phone">Số Điện Thoại: </label>
+      <input type="text" class="form-control" id="phone" name="phone" />
+    </div>
+    <button type="submit" class="btn btn-primary center-btn">Đăng Kí</button>
+  </form>
+</div>
+<%- include('footer'); -%>

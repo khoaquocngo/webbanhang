@@ -1,0 +1,290 @@
+/* header*/
+.nav {
+  background: linear-gradient(162.7deg, #2853c3 9.55%, #20bcff 85.72%);
+  margin-bottom: 30px;
+}
+.page-title {
+  text-align: center;
+  color: blue;
+  font-size: 30px;
+  text-transform: uppercase;
+}
+.header-bar {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  align-items: center;
+}
+
+.main-link {
+  color: white;
+}
+
+.main-link:hover {
+  text-decoration: none;
+  color: #150d2c;
+}
+.fullname {
+  color: white;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+}
+.user-btn {
+  background: transparent;
+  border: 0px;
+  padding: 0px;
+}
+.user-btn:focus,
+.user-btn:active {
+  outline: none;
+}
+/* index*/
+.home {
+  padding: 50px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+@media screen and (max-width: 575px) {
+  .home {
+    padding: 50px 10px;
+  }
+}
+@media screen and (max-width: 515px) {
+  .home {
+    justify-content: center;
+  }
+  .product-item {
+    flex-basis: 80%;
+  }
+}
+
+.product-item {
+  flex-basis: 31%;
+  margin-bottom: 20px;
+  padding: 10px;
+  min-width: 250px;
+  border: 1px solid #b8b9bc;
+  border-radius: 5px;
+  margin-left: 20px;
+}
+
+.product-item .item-img {
+  width: 150px;
+  height: 170px;
+  margin: auto;
+  display: block;
+}
+.product-item .item-name {
+  color: #333;
+  padding: 5px 0;
+  text-align: center;
+}
+.product-item .item-price {
+  font-size: 14px;
+  color: #e10c00;
+}
+.product-item .item-decription {
+  font-size: 12px;
+  color: #333;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  padding: 5px 0;
+  line-height: 15px;
+  max-height: 50px;
+}
+.btn-buy {
+  margin: auto;
+  margin-top: 10px;
+  display: block;
+}
+/*order*/
+.order .order-img {
+  width: 60px;
+  height: 70px;
+}
+.order .order-price {
+  color: #888181;
+}
+.order .order-header {
+  background: #88d3e9;
+  color: #ffffff;
+}
+.order .order-body {
+  background: #e1e1e112;
+}
+.order .item {
+  border: 1px solid #20bcff;
+  border-radius: 5px;
+}
+.order .item th {
+  vertical-align: middle;
+}
+.order .item .code {
+  color: #7a7272;
+  font-size: 15px;
+}
+.order .item .name {
+  font-size: 17px;
+}
+.order .item .detail {
+  font-size: 14px;
+  color: #817878;
+}
+.order .item .price {
+  color: #817878;
+}
+/*order detail*/
+.order-detail {
+  padding: 20px 0;
+}
+.detail {
+  max-width: 600px;
+  margin: auto;
+}
+.detail-title {
+  margin-bottom: 20px;
+  color: blue;
+  font-size: 23px;
+}
+.detail .item {
+  background: #e1e1e112;
+  color: #7a7272;
+}
+.detail .item .item-img {
+  width: 260px;
+  height: 230px;
+  display: block;
+  margin: auto;
+  margin-top: 10px;
+}
+/*cart*/
+.update-cart {
+  float: right;
+}
+.order-form {
+  margin: 70px 0 30px 0;
+}
+.form-info-header {
+  color: #387aa9;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+.custom-info .form-group {
+  margin: auto;
+  margin-bottom: 1rem;
+}
+.quantity-input {
+  max-width: 100px;
+  border-radius: 3px;
+  border: 1px solid #cdb9b9;
+  color: #888181;
+}
+.form-group label {
+  font-weight: 600;
+}
+.middle-btn {
+  display: block;
+  margin: auto;
+}
+/*login*/
+.login {
+  padding: 20px;
+}
+.login .title {
+  text-align: center;
+  color: blue;
+  text-transform: uppercase;
+}
+.login-form {
+  margin: auto;
+  max-width: 500px;
+}
+.login-form .form-group label {
+  color: #7894c7;
+}
+.login-form .signup-text {
+  margin-top: 1rem;
+}
+
+/*add update*/
+.hidden-btn {
+  display: none;
+}
+
+/*table accout*/
+.accout-tb {
+  margin-top: 30px;
+}
+.accout-ib {
+  width: 250px;
+  margin: auto;
+}
+
+/*ProductManagement*/
+.btn-add {
+}
+.search-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.action-group {
+  min-width: 150px;
+}
+.pro-manage .col-img {
+  min-width: 95px;
+}
+.pro-manage .col-name {
+  min-width: 140px;
+}
+.pm-modal .title {
+  color: blue;
+  margin: auto;
+}
+.modal-form button {
+  float: right;
+  margin-left: 5px;
+}
+/*admin*/
+.adm {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.adm .item {
+  margin-right: 10px;
+}
+.adm .item label {
+  font-weight: 600;
+}
+.add-btn {
+  max-height: 40px;
+  margin-top: 10px;
+}
+/*profile*/
+.profile-form {
+  margin: auto;
+  padding: 20px 0;
+}
+@media screen and (min-width: 700px) {
+  .profile-form {
+    max-width: 60%;
+  }
+}
+.profile-form .col-md-6 {
+  padding: 0;
+}
+.center-btn {
+  display: block;
+  margin: auto;
+}

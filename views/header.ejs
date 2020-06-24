@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+  <link href="/style.css" rel="stylesheet" type="text/css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <title><%= title %></title>
+</head>
+
+<body>
+  <div>
+    <div class="nav">
+      <div class="container header-bar">
+        <a class="main-link" href="/">Trang Chủ</a>
+        <% if(!currentUser){ %>
+        <a class="main-link" href="/login">Đăng Nhập</a>
+        <a class="main-link" href="/register">Đăng Kí</a>
+        <% } else{ %>
+        <% if(currentUser.Decentralize == true) { %>
+        <a class="main-link" href="/order">Đơn Đặt Hàng</a>
+        <a class="main-link" href="/cart">Giỏ Hàng</a>
+        <% } %>
+        <% if(currentUser.Decentralize == false) { %>
+        <a class="main-link" href="/OrderManagement">Đơn Hàng</a>
+        <a class="main-link" href="/ProductManagement">Sản Phẩm</a>
+        <a class="main-link" href="/AccountGuest">Account Khách hàng</a>
+        <% if(currentUser.Username == "admin") {%> 
+        <a class="main-link" href="/AccountAdmin">Account Nhân viên</a>
+        <% } %>
+        <% } %>
+        <div class="btn-group">
+          <button class="user-btn" type="button" data-toggle="dropdown" >
+            <img src="<%=currentUser.Avatar %> " alt="" class="rounded avatar" >
+            <span class="fullname"><%= currentUser.Fullname %> </span>
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/profile">Thông Tin Cá Nhân</a>
+            <a class="dropdown-item" href="/ChangePassword">Thay Đổi Mật Khẩu</a>
+            <a class="dropdown-item" href="/logout">Đăng Xuất</a>
+          </div>
+        </div>
+
+        <% } %>
+      </div>
+    </div>

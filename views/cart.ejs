@@ -1,0 +1,61 @@
+<%- include('header',{title: 'Cart'}); -%>
+<div class="container">
+<div>
+  <h3 class="form-info-header">Giỏ hàng</h3>
+  <table class="container table order">
+    <thead class="order-header">
+      <tr>
+        <th scope="col">Tên Sản Phẩm</th>
+        <th scope="col">Hình ảnh</th>
+        <th scope="col">Số lượng</th>
+        <th scope="col">Giá</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody class="order-body">
+        <form action="" method="POST">
+        <% carts.forEach(function(c){ %>
+        <tr class="item">
+            <th scope="col"><%= c.product.ProductName %> </th>
+            <th scope="col"><img src="<%= c.product.ProductImage %>" alt="" class="order-img"></th>
+            <input type="hidden" name="productId[]" value="<%= c.productId %>">
+            <th scope="col"><input class="quantity-input" type="number" name="number[]" min="0" value="<%= c.number %>"></th>
+            <th scope="col" class="order-price"><%= c.product.Price * c.number  %> </th>
+            <th scope="col"><a href="/cart/<%=c.productId%>/delete" role="button">Xóa</a></th>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+  <input type="submit" class="btn btn-primary update-cart" value="Cập nhật số lượng"> 
+  </form>
+</div>
+  <!-- form -->
+  <div class="order-form">
+    <h3 class="form-info-header">THÔNG TIN ĐẶT HÀNG</h3>
+  <form action="/reply" method="post" class="custom-info">
+    <div class="form-group col-md-6">
+      <label for="fullname">Họ và tên: </label>
+      <input type="text" class="form-control" id="fullname" name="fullname" value="<%= currentUser.Fullname %> "/>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="email">Email: </label>
+      <input type="email" class="form-control" id="email" name="email" value="<%= currentUser.Email %> " />
+    </div>
+    <% carts.forEach(function(c){ %>
+    <input type="hidden" name="productId[]" value="<%= c.productId %>">
+    <input type="hidden" name="number[]" value="<%= c.number %>">
+    <% }); %> 
+
+    <div class="form-group col-md-6">
+      <label for="address">Địa chỉ: </label>
+      <input type="text" class="form-control" id="address" name="address" value="<%= currentUser.Address %> "/>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="phone">Số điện thoại: </label>
+      <input type="text" class="form-control" id="phone" name="phone" value="<%= currentUser.Phone %> " />
+    </div>
+    <button type="submit" class="btn btn-primary middle-btn">Đặt hàng</button>
+  </form>
+  </div>
+</div>
+<%- include('footer'); -%>

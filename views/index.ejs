@@ -1,0 +1,15 @@
+<%- include('header',{title: 'Home'}); -%>
+<div class="container home">
+  <% product.forEach(function(p){ %>
+  <div class="product-item">
+    <img src="<%= p.ProductImage %>" class="item-img" />
+    <div class="item-name"><%= p.ProductName %></div>
+    <div class="item-price"><%= p.Price %>đ</div>
+    <div class="item-decription"><%= p.Description %></div>
+    <a href="/cart/<%=p.id%>/add " role="button" class="btn btn-success btn-buy"
+      >Mua ngay
+    </a>
+  </div>
+  <% }); %>
+</div>
+<%- include('footer'); -%>

@@ -1,0 +1,161 @@
+<%- include('header',{title: 'Product Management'}); -%>
+
+<!-- Tìm Kiếm -->
+<div class="container">
+  <div class="search-group">
+    <!-- btn thêm sản phẩm  -->
+    <div class="">
+      <button
+        type="button"
+        class="btn btn-primary btn-add"
+        data-toggle="modal"
+        data-target="#exampleModal"
+        data-whatever=""
+      >
+        Thêm sản phẩm
+      </button>
+    </div>
+    <form action="/ProductManagement/search" method="get">
+      <div class="form-row">
+        <input
+          type="text"
+          placeholder="Nhập tên sản phẩm"
+          class="form-control accout-ib"
+          id="PName"
+          name="PName"
+        />
+        <input
+          class="btn btn-primary middle-btn"
+          type="submit"
+          value="Tìm kiếm"
+        />
+      </div>
+    </form>
+  </div>
+
+  <!-- table  -->
+  <div>
+    <table class="table order pro-manage">
+      <thead class="order-header">
+        <tr class="item">
+          <th scope="col" class="col-name">Tên Sản Phẩm</th>
+          <th scope="col">Giá</th>
+          <th scope="col">Mô Tả</th>
+          <th scope="col" class="col-img">Hình ảnh</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody class="order-body">
+        <% product.forEach(function(p){ %>
+        <tr class="item">
+          <th class="name" scope="col"><%= p.ProductName; %></th>
+          <th class="price" scope="col"><%= p.Price %></th>
+          <th class="detail" scope="col"><%= p.Description %></th>
+          <th scope="col">
+            <img src="<%= p.ProductImage %>" alt="" class="order-img" />
+          </th>
+          <th scope="col" class="action-group">
+            <a
+              href="/ProductManagement/<%= p.id %>/delete "
+              role="button"
+              class="btn btn-primary"
+              >Xóa</a
+            >
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-toggle="modal"
+              data-target="#exampleModal"
+              data-whatever="<%=p.id%>"
+            >
+              Sửa
+            </button>
+          </th>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </div>
+
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog pm-modal" role="document">
+      <div class="modal-content">
+        <div class="modal-header header">
+          <h5 class="modal-title title" id="exampleModalLabel"></h5>
+        </div>
+        <div class="modal-body">
+          <!-- From Update và Add -->
+          <form method="post" enctype="multipart/form-data" class="modal-form">
+            <div class="form-group">
+              <label for="ProductImage">Hình Ảnh: </label>
+              <input
+                type="file"
+                class="form-control-file"
+                id="ProductImage"
+                name="ProductImage"
+              />
+            </div>
+            <div class="form-group">
+              <label for="ProductName">Tên Sản Phẩm: </label>
+              <input
+                type="text"
+                class="form-control"
+                id="ProductName"
+                name="ProductName"
+              />
+            </div>
+            <div class="form-group">
+              <label for="Price">Giá tiền: </label>
+              <input
+                type="number"
+                class="form-control"
+                id="Price"
+                name="Price"
+              />
+            </div>
+            <div class="form-group">
+              <label for="Description">Mô tả: </label>
+              <textarea
+                type="text"
+                class="form-control"
+                id="Description"
+                name="Description"
+              ></textarea>
+            </div>
+            <input type="hidden" id="idproduct" name="idproduct" />
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Thoát
+            </button>
+            <button
+              type="submit"
+              class="btn btn-primary"
+              name="update"
+              id="update"
+            ></button>
+            <button
+              type="submit"
+              class="btn btn-primary"
+              name="add"
+              id="add"
+            ></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/script.js"></script>
+
+<%- include('footer'); -%>

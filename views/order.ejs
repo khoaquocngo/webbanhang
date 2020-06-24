@@ -1,0 +1,22 @@
+<%- include('header',{title: 'Order'}); -%>
+<table class="container table order">
+    <thead class="order-header">
+      <tr> 
+        <th scope="col">Mã Đặt hàng</th>
+        <th scope="col">Tên Sản phẩm</th>
+        <th scope="col">Hình ảnh</th>
+        <th scope="col">Thao tác</th>
+      </tr>
+    </thead>
+    <tbody class="order-body">
+        <% order.forEach(function(o){ %>
+        <tr class="item">
+            <th class="code" scope="col"><%= o.code; %> </th>
+            <th class="name" scope="col"><%= o.product.ProductName %> </th>
+            <th scope="col"><img src="<%= o.product.ProductImage %>" class="order-img" alt=""></th>
+            <th class="detail" scope="col"><a href="/OrderDetail/<%= o.id %> ">Chi tiết</a></th>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+<%- include('footer'); -%>
